@@ -4,11 +4,18 @@ import { body } from 'express-validator';
 // validationResult is a function that outpus errors if any occured
 import jwt from 'jsonwebtoken';
 
-import { validateRequest } from '../middlewares/validate-request';
 import { User } from '../models/user';
-import { BadRequestError } from '../errors/bad-request-error';
+
+import {
+  validateRequest,
+  BadRequestError,
+} from '@ekohtickets/common';
 
 const router = express.Router();
+
+router.post('/api/users/hello', (req: Request, res: Response) => {
+  res.status(200).send('hello');
+});
 
 router.post(
   '/api/users/signup',

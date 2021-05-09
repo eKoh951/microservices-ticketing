@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-depl
+spec:
+  replicas: 1 # Running 1 single pod
+  selector: # This 'selector' describes how the deployment will find the pods
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+    spec: # Every pod will have a cointainer of 'client' name
+      containers:
+        - name: client
+          image: ekoh95/client
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-srv
+spec:
+  selector:
+    app: client
+  ports:
+    - name: client
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

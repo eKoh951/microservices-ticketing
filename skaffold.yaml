@@ -17,5 +17,13 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: 'stc/**/*.ts'
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: ekoh95/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
             dest: .

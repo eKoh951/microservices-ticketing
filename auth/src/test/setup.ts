@@ -1,6 +1,17 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
+import request from 'supertest';
 import { app } from '../app';
+
+// Augmented definition
+declare global {
+  namespace NodeJS {
+    interface Global {
+      // Global will have a signin function that resolves in a promise that returns an array of strings
+      signin(): Promise<string[]>;
+    }
+  }
+}
 
 let mongo: any;
 
@@ -33,3 +44,21 @@ afterAll(async () => {
   await mongo.stop();
   await mongoose.connection.close();
 });
+
+// Global function
+global.signin = async () => {
+  const email = 'test@test.com';
+  const password = 'password';
+
+  const response = await request(app)
+    .post('/api/users/signup')
+    .send({
+      email,
+      password,
+    })
+    .expect(201);
+
+  const cookie = response.get('Set-Cookie');
+
+  return cookie;
+};
