@@ -3,3 +3,4 @@ tickets/node_modules
 client/node_modules
 common/node_modules
 common/build
+nats-test/node_modules
