@@ -27,6 +27,14 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+    - image: ekoh95/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
     - image: ekoh95/client
       context: client
       docker:
