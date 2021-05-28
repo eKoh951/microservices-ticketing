@@ -21,9 +21,7 @@ AppComponent.getInitialProps = async (appContext) => {
   let pageProps = {};
   // Only to execute on pages where getInitialProps is defined
   if (appContext.Component.getInitialProps) {
-    pageProps = await appContext.Component.getInitialProps(
-      appContext.ctx,
-    );
+    pageProps = await appContext.Component.getInitialProps(appContext.ctx);
   }
 
   return {
