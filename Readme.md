@@ -2,8 +2,14 @@
 
 skaffold dev
 
-# Go to chrome to the following
+# Replace in host file
+C:\Windows\System32\drivers\etc\
 
-https://ticketing.dev/api/users/currentuser
+Add the following:
+127.0.0.1 ticketing.dev
+
+# Go to chrome to do the following
+
+https://ticketing.dev/
 
 Literally type thisisunsafe
