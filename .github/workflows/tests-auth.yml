@@ -1,4 +1,4 @@
-name: tests
+name: tests-auth
 
 # Define the trigger for this workflow
 # https://docs.github.com/en/actions/reference/events-that-trigger-workflows#pull_request
