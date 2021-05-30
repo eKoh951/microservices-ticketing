@@ -11,7 +11,8 @@ export const buildClient = ({ req }) => {
         // Terminal, to get the servicename
         // kubectl get namespace
         // kubectl get services -n <namespace>
-        'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+        // 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+        'http://ticketing-microservices-ekoh.xyz/',
       headers: req.headers,
     });
   } else {
