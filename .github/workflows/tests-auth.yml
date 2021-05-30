@@ -3,8 +3,10 @@ name: tests-auth
 # Define the trigger for this workflow
 # https://docs.github.com/en/actions/reference/events-that-trigger-workflows#pull_request
 on:
-  pull_request
-  
+  pull_request: # If a pull_request event occurs
+    paths: # And on the following paths, something changed, then trigger
+      - 'auth/**'
+
 # The jobs are the things that we want to do when a pull_request happens
 jobs:
   build: # We want to run a virutal machine
