@@ -1,4 +1,4 @@
-name: deply-auth
+name: deploy-auth
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd auth && docket build -t ekoh95/auth .
+      - run: cd auth && docker build -t ekoh95/auth .
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
