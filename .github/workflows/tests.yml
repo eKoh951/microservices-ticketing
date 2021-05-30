@@ -1,0 +1,14 @@
+name: tests
+
+# Define the trigger for this workflow
+# https://docs.github.com/en/actions/reference/events-that-trigger-workflows#pull_request
+on:
+  pull_request
+  
+# The jobs are the things that we want to do when a pull_request happens
+jobs:
+  build: # We want to run a virutal machine
+    runs-on: ubuntu-lastest # Running ubuntu at the latest version
+    steps: # Then we say what we want to do in the virtual machine
+      - uses: actions/checkout@v2 # Take all the code out of the project
+      - run: cd auth && npm install && npm run test:ci # Command to run all the tests only in the auth service
